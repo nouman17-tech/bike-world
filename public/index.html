@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike World - Premium Motorcycle Spare Parts</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-motorcycle"></i> Bike World
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <div class="user-menu">
+                        <button class="user-btn" id="userBtn">
+                            <i class="fas fa-user"></i>
+                        </button>
+                        <div class="user-dropdown" id="userDropdown" style="display:none;">
+                            <a href="login.html" id="loginLink">Login</a>
+                            <a href="register.html" id="registerLink">Register</a>
+                            <a href="#" id="dashboardLink" style="display:none;">Dashboard</a>
+                            <a href="#" id="logoutLink" style="display:none;">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Bike World</h1>
+            <p>Your Ultimate Destination for Premium Bike Spare Parts</p>
+            <a href="products.html" class="btn btn-primary btn-lg">Shop Now</a>
+        </div>
+        <div class="hero-background">
+            <i class="fas fa-motorcycle"></i>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2>Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <i class="fas fa-oil-can"></i>
+                    <h3>Engine Oil</h3>
+                    <p>Premium quality engine oils</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-ban"></i>
+                    <h3>Brakes</h3>
+                    <p>High-performance brake systems</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-filter"></i>
+                    <h3>Filters</h3>
+                    <p>Air and oil filters</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-cog"></i>
+                    <h3>Drivetrain</h3>
+                    <p>Chain and sprocket kits</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Ignition</h3>
+                    <p>Spark plugs and coils</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-car-battery"></i>
+                    <h3>Electrical</h3>
+                    <p>Batteries and alternators</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2>Featured Products</h2>
+            <div class="products-grid" id="featuredProducts"></div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2>Why Choose Bike World?</h2>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Authentic Products</h3>
+                    <p>100% genuine spare parts guaranteed</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Quick delivery across Pakistan</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-tag"></i>
+                    <h3>Best Prices</h3>
+                    <p>Competitive pricing on all products</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated customer service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get updates on new products and special offers</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Bike World</h3>
+                    <p>Your trusted source for premium bike spare parts and accessories in Pakistan.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: info@bikeworld.pk</p>
+                    <p>Phone: +92-300-1234567</p>
+                    <p>Address: Karachi, Pakistan</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bike World. All rights reserved. | Created by <strong>Nouman Ijaz</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

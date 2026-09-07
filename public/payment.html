@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Bike World</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo"><i class="fas fa-motorcycle"></i> Bike World</div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="payment-section">
+        <div class="container">
+            <div class="payment-box">
+                <h1>Secure Payment</h1>
+                <div id="card-element"></div>
+                <div id="card-errors" style="color: #fa755a;"></div>
+                <button id="submit-btn" class="btn btn-primary btn-block" style="margin-top: 2rem;">Pay Now</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/api.js"></script>
+    <script>
+        const stripe = Stripe('pk_test_your_stripe_key_here');
+        const elements = stripe.elements();
+        const cardElement = elements.create('card');
+        cardElement.mount('#card-element');
+
+        cardElement.addEventListener('change', (event) => {
+            const displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+
+        document.getElementById('submit-btn').addEventListener('click', async () => {
+            const checkoutData = JSON.parse(sessionStorage.getItem('checkoutData') || '{}');
+            
+            try {
+                const response = await fetch('/api/payment/create-intent', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        amount: checkoutData.total,
+                        orderId: 'temp'
+                    })
+                });
+
+                const data = await response.json();
+
+                const result = await stripe.confirmCardPayment(data.clientSecret, {
+                    payment_method: {
+                        card: cardElement,
+                        billing_details: {
+                            name: checkoutData.shippingAddress.fullName,
+                            address: {
+                                line1: checkoutData.shippingAddress.address,
+                                city: checkoutData.shippingAddress.city
+                            }
+                        }
+                    }
+                });
+
+                if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
+                    alert('Payment successful!');
+                    localStorage.removeItem('cart');
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Payment failed');
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html>

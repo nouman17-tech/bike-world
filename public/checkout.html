@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Bike World</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-motorcycle"></i> Bike World
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <h1>Checkout</h1>
+            <div class="checkout-content">
+                <div class="checkout-form">
+                    <h2>Shipping Address</h2>
+                    <form id="checkoutForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <h2 style="margin-top: 2rem;">Payment Method</h2>
+                        <div class="form-group">
+                            <label>
+                                <input type="radio" name="paymentMethod" value="stripe" checked>
+                                Stripe (Card)
+                            </label>
+                            <label>
+                                <input type="radio" name="paymentMethod" value="cod">
+                                Cash on Delivery
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Continue to Payment</button>
+                    </form>
+                </div>
+
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    <div id="orderItems"></div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="orderTotal">PKR 0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/api.js"></script>
+    <script>
+        const user = JSON.parse(localStorage.getItem('user') || '{}');
+        document.getElementById('fullName').value = user.name || '';
+
+        document.getElementById('checkoutForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            if (cart.length === 0) {
+                alert('Cart is empty');
+                return;
+            }
+
+            const shippingAddress = {
+                fullName: document.getElementById('fullName').value,
+                address: document.getElementById('address').value,
+                city: document.getElementById('city').value,
+                phone: document.getElementById('phone').value
+            };
+
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const total = subtotal + 500;
+
+            if (paymentMethod === 'cod') {
+                // Cash on Delivery
+                try {
+                    const response = await fetch('/api/orders/create', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            items: cart,
+                            shippingAddress,
+                            total,
+                            paymentMethod: 'cod'
+                        })
+                    });
+
+                    if (response.ok) {
+                        localStorage.removeItem('cart');
+                        alert('Order placed successfully!');
+                        window.location.href = 'index.html';
+                    }
+                } catch (error) {
+                    alert('Error: ' + error.message);
+                }
+            } else {
+                // Stripe Payment
+                sessionStorage.setItem('checkoutData', JSON.stringify({
+                    shippingAddress,
+                    cart,
+                    total,
+                    subtotal
+                }));
+                window.location.href = 'payment.html';
+            }
+        });
+
+        function displayOrderSummary() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const orderItems = document.getElementById('orderItems');
+            let subtotal = 0;
+
+            let html = '';
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                html += `
+                    <div class="order-item">
+                        <span>${item.name} x ${item.quantity}</span>
+                        <span>PKR ${itemTotal}</span>
+                    </div>
+                `;
+            });
+
+            orderItems.innerHTML = html + `
+                <div class="order-item">
+                    <span>Shipping</span>
+                    <span>PKR 500</span>
+                </div>
+            `;
+
+            document.getElementById('orderTotal').textContent = `PKR ${subtotal + 500}`;
+        }
+
+        displayOrderSummary();
+    </script>
+</body>
+</html>

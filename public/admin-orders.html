@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Orders - Bike World Admin</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-page">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <h3><i class="fas fa-cog"></i> Admin Panel</h3>
+            <ul>
+                <li><a href="admin-dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+                <li><a href="admin-products.html"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="admin-orders.html" class="active"><i class="fas fa-shopping-bag"></i> Orders</a></li>
+                <li><a href="#" onclick="adminLogout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-content">
+            <div class="admin-header">
+                <h1>Order Management</h1>
+                <select id="statusFilter" style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px;">
+                    <option value="">All Orders</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+            </div>
+
+            <!-- Orders Table -->
+            <div class="admin-section">
+                <h2>All Orders</h2>
+                <div class="table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody">
+                            <tr>
+                                <td colspan="6" style="text-align: center; color: #999;">Loading orders...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script>
+        let allOrders = [];
+
+        // Check admin authentication
+        function checkAdminAuth() {
+            const admin = localStorage.getItem('admin');
+            if (!admin) {
+                window.location.href = 'admin-login.html';
+            }
+        }
+
+        // Load orders
+        async function loadOrders() {
+            try {
+                // This would come from a getAdminOrders API endpoint
+                // For now, we'll show a placeholder
+                displayOrders([]);
+            } catch (error) {
+                console.error('Error loading orders:', error);
+            }
+        }
+
+        // Display orders in table
+        function displayOrders(orders) {
+            const tableBody = document.getElementById('ordersTableBody');
+            if (orders.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: #999;">No orders found</td></tr>';
+                return;
+            }
+
+            let html = '';
+            orders.forEach(order => {
+                const statusClass = `status-${order.status}`;
+                const date = new Date(order.createdAt).toLocaleDateString();
+                html += `
+                    <tr>
+                        <td>#${order._id.substr(0, 8)}</td>
+                        <td>${order.shippingAddress?.fullName || 'N/A'}</td>
+                        <td>PKR ${order.total}</td>
+                        <td><span class="status-badge ${statusClass}">${order.status.toUpperCase()}</span></td>
+                        <td>${date}</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-edit" onclick="viewOrder('${order._id}')"><i class="fas fa-eye"></i> View</button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            });
+            tableBody.innerHTML = html;
+        }
+
+        // View order details
+        function viewOrder(id) {
+            alert('View order details for ID: ' + id);
+            // This would open a modal or detailed view
+        }
+
+        // Filter orders by status
+        document.getElementById('statusFilter').addEventListener('change', (e) => {
+            const status = e.target.value;
+            const filtered = status ? allOrders.filter(o => o.status === status) : allOrders;
+            displayOrders(filtered);
+        });
+
+        // Admin logout
+        function adminLogout() {
+            localStorage.removeItem('admin');
+            alert('Logged out successfully');
+            window.location.href = 'admin-login.html';
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAdminAuth();
+            loadOrders();
+        });
+    </script>
+</body>
+</html>

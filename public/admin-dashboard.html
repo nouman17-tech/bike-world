@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Bike World</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-page">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <h3><i class="fas fa-cog"></i> Admin Panel</h3>
+            <ul>
+                <li><a href="admin-dashboard.html" class="active"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+                <li><a href="admin-products.html"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="admin-orders.html"><i class="fas fa-shopping-bag"></i> Orders</a></li>
+                <li><a href="#" onclick="adminLogout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-content">
+            <div class="admin-header">
+                <h1>Dashboard</h1>
+                <div>
+                    <span id="adminName"></span>
+                    <button class="btn btn-secondary btn-sm" onclick="adminLogout()">Logout</button>
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <h3>Total Products</h3>
+                    <div class="stat-value" id="totalProducts">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Users</h3>
+                    <div class="stat-value" id="totalUsers">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Pending Orders</h3>
+                    <div class="stat-value" id="pendingOrders">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Revenue</h3>
+                    <div class="stat-value" id="totalRevenue">PKR 0</div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="admin-section">
+                <h2>Quick Actions</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <a href="admin-products.html" class="btn btn-primary btn-lg" style="text-align: center;">
+                        <i class="fas fa-plus"></i> Add Product
+                    </a>
+                    <a href="admin-orders.html" class="btn btn-secondary btn-lg" style="text-align: center;">
+                        <i class="fas fa-eye"></i> View Orders
+                    </a>
+                    <a href="admin-products.html" class="btn btn-secondary btn-lg" style="text-align: center;">
+                        <i class="fas fa-edit"></i> Manage Products
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script>
+        // Check admin authentication
+        function checkAdminAuth() {
+            const admin = localStorage.getItem('admin');
+            if (!admin) {
+                window.location.href = 'admin-login.html';
+            } else {
+                const adminData = JSON.parse(admin);
+                document.getElementById('adminName').textContent = `Welcome, ${adminData.name}`;
+            }
+        }
+
+        // Load dashboard stats
+        async function loadStats() {
+            try {
+                const stats = await api.getAdminStats();
+                document.getElementById('totalProducts').textContent = stats.totalProducts || 0;
+                document.getElementById('totalUsers').textContent = stats.totalUsers || 0;
+                document.getElementById('pendingOrders').textContent = '0'; // Would come from orders API
+                document.getElementById('totalRevenue').textContent = 'PKR 0'; // Would come from orders API
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+
+        // Admin logout
+        function adminLogout() {
+            localStorage.removeItem('admin');
+            alert('Logged out successfully');
+            window.location.href = 'admin-login.html';
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAdminAuth();
+            loadStats();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike World - Premium Bike Spare Parts</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-motorcycle"></i> Bike World
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Bike World</h1>
+            <p>Your One-Stop Shop for Premium Bike Spare Parts</p>
+            <a href="products.html" class="btn btn-primary">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2>Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <i class="fas fa-cog"></i>
+                    <h3>Engines & Parts</h3>
+                    <p>Complete engine components and accessories</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-wheel"></i>
+                    <h3>Wheels & Tires</h3>
+                    <p>Quality wheels and tires for all bike types</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Brakes & Safety</h3>
+                    <p>High-performance brake systems and safety gear</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-wrench"></i>
+                    <h3>Tools & Accessories</h3>
+                    <p>Professional tools and bike accessories</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2>Featured Products</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x250?text=Engine+Oil" alt="Engine Oil">
+                    </div>
+                    <div class="product-info">
+                        <h3>Premium Engine Oil</h3>
+                        <p class="price">PKR 2,500</p>
+                        <p class="description">High-quality synthetic engine oil</p>
+                        <button class="btn btn-secondary add-to-cart" data-id="1" data-name="Premium Engine Oil" data-price="2500">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x250?text=Brake+Pads" alt="Brake Pads">
+                    </div>
+                    <div class="product-info">
+                        <h3>Brake Pads Set</h3>
+                        <p class="price">PKR 3,200</p>
+                        <p class="description">Genuine motorcycle brake pads</p>
+                        <button class="btn btn-secondary add-to-cart" data-id="2" data-name="Brake Pads Set" data-price="3200">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x250?text=Air+Filter" alt="Air Filter">
+                    </div>
+                    <div class="product-info">
+                        <h3>Air Filter</h3>
+                        <p class="price">PKR 1,800</p>
+                        <p class="description">Reusable air filter element</p>
+                        <button class="btn btn-secondary add-to-cart" data-id="3" data-name="Air Filter" data-price="1800">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x250?text=Chain+Sprocket" alt="Chain Sprocket">
+                    </div>
+                    <div class="product-info">
+                        <h3>Chain & Sprocket Kit</h3>
+                        <p class="price">PKR 5,500</p>
+                        <p class="description">Complete chain and sprocket assembly</p>
+                        <button class="btn btn-secondary add-to-cart" data-id="4" data-name="Chain & Sprocket Kit" data-price="5500">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x250?text=Spark+Plug" alt="Spark Plug">
+                    </div>
+                    <div class="product-info">
+                        <h3>Spark Plug</h3>
+                        <p class="price">PKR 800</p>
+                        <p class="description">High-performance spark plugs</p>
+                        <button class="btn btn-secondary add-to-cart" data-id="5" data-name="Spark Plug" data-price="800">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x250?text=Battery" alt="Battery">
+                    </div>
+                    <div class="product-info">
+                        <h3>Motorcycle Battery</h3>
+                        <p class="price">PKR 4,200</p>
+                        <p class="description">12V powerful motorcycle battery</p>
+                        <button class="btn btn-secondary add-to-cart" data-id="6" data-name="Motorcycle Battery" data-price="4200">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2>Why Choose Bike World?</h2>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Authentic Products</h3>
+                    <p>100% genuine spare parts guaranteed</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-truck"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Quick delivery across Pakistan</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-tag"></i>
+                    <h3>Best Prices</h3>
+                    <p>Competitive pricing on all products</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <h3>Customer Support</h3>
+                    <p>24/7 dedicated customer service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get updates on new products and special offers</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Bike World</h3>
+                    <p>Your trusted source for premium bike spare parts and accessories.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: info@bikeworld.pk</p>
+                    <p>Phone: +92-300-1234567</p>
+                    <p>Address: Karachi, Pakistan</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bike World. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

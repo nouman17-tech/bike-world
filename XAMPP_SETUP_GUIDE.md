@@ -1,186 +1,187 @@
-# Bike World - XAMPP Setup Guide
+# 🚀 XAMPP Setup Guide for Bike World
 
-This guide will help you run the Bike World e-commerce website on XAMPP (Apache local server).
+## Complete Step-by-Step Instructions
 
-## Prerequisites
+### Step 1: Install XAMPP
 
-- **XAMPP** installed on your computer ([Download XAMPP](https://www.apachefriends.org/))
-- **Git** installed (to clone the repository)
-- A text editor (VS Code, Sublime Text, etc.)
-- Basic knowledge of file paths and command line
+1. Download XAMPP from https://www.apachefriends.org/download.html
+2. Choose your OS:
+   - **Windows**: Download the .exe installer
+   - **Mac**: Download the .dmg file
+   - **Linux**: Download the appropriate package
+3. Run the installer and follow prompts
+4. Choose installation location (default is fine)
+5. Complete installation
 
-## Step 1: Install XAMPP
+### Step 2: Copy Project to XAMPP
 
-1. Download XAMPP from [apachefriends.org](https://www.apachefriends.org/)
-2. Install it to the default location:
-   - **Windows:** `C:\xampp\`
-   - **Mac:** `/Applications/XAMPP/`
-   - **Linux:** `/opt/lampp/`
-
-## Step 2: Clone the Repository
-
-1. Open your terminal/command prompt
-2. Navigate to the XAMPP `htdocs` folder:
-   ```bash
-   # Windows
-   cd C:\xampp\htdocs
-
-   # Mac/Linux
-   cd /Applications/XAMPP/htdocs
-   ```
-
-3. Clone the Bike World repository:
-   ```bash
-   git clone https://github.com/nouman17-tech/bike-world.git bike-world
-   cd bike-world
-   ```
-
-## Step 3: Directory Structure
-
-Your folder structure should look like this:
+**Windows:**
 ```
 C:\xampp\htdocs\bike-world\
-├── index.html
-├── products.html
-├── cart.html
-├── about.html
-├── contact.html
-├── styles.css
-├── script.js
-├── server.js
-├── package.json
-├── assets/
-│   ├── images/
-│   ├── logos/
-│   └── ...
-├── public/
-└── README.md
 ```
 
-## Step 4: Start XAMPP
-
-### Windows:
-1. Open **XAMPP Control Panel** (from Start Menu)
-2. Click **Start** next to "Apache"
-3. You should see "Apache" running in green
-
-### Mac:
-1. Open **XAMPP Manager** (from Applications → XAMPP)
-2. Click **Start** next to Apache
-3. Wait for Apache to start (green status)
-
-### Linux:
-Open terminal and run:
-```bash
-sudo /opt/lampp/xampp start
+**Mac:**
+```
+/Applications/XAMPP/xamppfiles/htdocs/bike-world/
 ```
 
-## Step 5: Access the Website
-
-1. Open your web browser
-2. Go to: **http://localhost/bike-world/**
-3. You should see the Bike World homepage
-
-### Accessing Individual Pages:
-- **Home:** http://localhost/bike-world/
-- **Products:** http://localhost/bike-world/products.html
-- **Cart:** http://localhost/bike-world/cart.html
-- **About:** http://localhost/bike-world/about.html
-- **Contact:** http://localhost/bike-world/contact.html
-
-## Step 6: Verify All Pages Work
-
-Navigate through all pages using the top navigation menu to ensure:
-- ✓ Logo loads correctly
-- ✓ Navigation links work
-- ✓ All styling appears correct
-- ✓ JavaScript functionality works (cart, forms, etc.)
-- ✓ Images load properly
-
-## Troubleshooting
-
-### Apache Won't Start
-- **Problem:** Apache shows red/offline
-- **Solution:** 
-  - Check if port 80 is already in use
-  - Try stopping other web servers (IIS, etc.)
-  - Restart XAMPP
-
-### Pages Show 404 Error
-- **Problem:** "Not Found" error when accessing pages
-- **Solution:**
-  - Verify folder is in `htdocs` with correct name (`bike-world`)
-  - Check that file names match exactly (case-sensitive on Mac/Linux)
-  - Restart Apache
-
-### Styles/Images Not Loading
-- **Problem:** CSS or images appear broken
-- **Solution:**
-  - Open browser DevTools (F12) → Console
-  - Check for error messages showing file paths
-  - Verify all CSS/JS files are in the root directory
-  - Clear browser cache (Ctrl+Shift+Delete or Cmd+Shift+Delete)
-
-### 403 Forbidden Error
-- **Problem:** Access denied to folder
-- **Solution:**
-  - Right-click folder → Properties → Security
-  - Make sure you have read/execute permissions
-  - On Mac/Linux, check folder ownership
-
-## Common File Paths (DO NOT EDIT)
-
-All files use relative paths for maximum compatibility:
-
-```html
-<!-- Correct (relative paths - works on XAMPP) -->
-<link rel="stylesheet" href="styles.css">
-<script src="script.js"></script>
-
-<!-- Wrong (absolute paths - won't work on XAMPP) -->
-<link rel="stylesheet" href="/styles.css">
-<script src="http://localhost/bike-world/script.js"></script>
+**Linux:**
+```
+/opt/lampp/htdocs/bike-world/
 ```
 
-## Optional: Enable Directory Listings
+Make sure the entire project folder is copied here.
 
-To see a file browser at http://localhost/bike-world/ instead of the index page:
+### Step 3: Start XAMPP Services
 
-1. Open `C:\xampp\apache\conf\httpd.conf`
-2. Find the line with `DirectoryIndex index.html index.php`
-3. Add `index.php` if not already there
-4. Restart Apache
+1. Open XAMPP Control Panel
+2. Click **Start** next to:
+   - Apache
+   - MySQL
+3. Both should show green status
 
-## File Size & Performance Tips
+### Step 4: Create MySQL Database
 
-- Clear browser cache before testing changes: **Ctrl+Shift+Delete**
-- Disable browser cache during development:
-  - Open DevTools (F12)
-  - Settings → Gear icon → Check "Disable cache"
+1. Open browser: http://localhost/phpmyadmin
+2. Click **Databases** tab
+3. Create database:
+   - **Name**: bike_world
+   - **Collation**: utf8mb4_unicode_ci
+   - Click **Create**
 
-## Next Steps
+### Step 5: Run Setup Script
 
-1. **Add Database (MySQL):**
-   - Bike World currently uses JavaScript for data
-   - To add MySQL, create a `config.php` file in the root
+1. Open browser:
+   ```
+   http://localhost/bike-world/api/setup.php
+   ```
 
-2. **Add PHP Backend:**
-   - Create `api/` folder for PHP API routes
-   - Update JavaScript to fetch from PHP endpoints
+2. You should see:
+   ```json
+   {
+     "success": true,
+     "message": "Database and sample data are ready.",
+     "admin_email": "admin@bikeworld.pk",
+     "admin_password": "admin123"
+   }
+   ```
 
-3. **Security:**
-   - Don't expose sensitive data in JavaScript
-   - Implement server-side validation
+This creates:
+- All database tables
+- Admin user
+- 6 sample products
 
-## Support
+### Step 6: Access Your Website
 
-For more information:
-- [XAMPP Documentation](https://www.apachefriends.org/faq.html)
-- [Apache Web Server Guide](https://httpd.apache.org/docs/)
-- Check the main [README.md](README.md)
+1. Open browser:
+   ```
+   http://localhost/bike-world/
+   ```
+
+2. Website should load successfully!
+
+### Step 7: Admin Login Test
+
+1. Click **Login** in top menu
+2. Use these credentials:
+   ```
+   Email: admin@bikeworld.pk
+   Password: admin123
+   ```
+
+3. You should see admin dashboard
+
+### Step 8: Create Upload Folder
+
+The upload folder should auto-create when you:
+1. Login as admin
+2. Try to add a product with an image
+
+If it doesn't create, manually create:
+```
+bike-world/uploads/
+```
+
+## ✅ Troubleshooting
+
+### "Database connection failed"
+
+**Solution:**
+- Make sure MySQL is running (green in XAMPP panel)
+- Run setup.php again
+- Check database "bike_world" exists in phpmyadmin
+
+### "Page not found"
+
+**Solution:**
+- Make sure Apache is running
+- Check URL: http://localhost/bike-world/
+- Verify folder is in htdocs/
+
+### "Setup.php returns error"
+
+**Solution:**
+- Click the setup.php link again
+- Check MySQL is running
+- Verify bike_world database exists
+
+### "Login fails"
+
+**Solution:**
+- Run setup.php again to create admin user
+- Check email: admin@bikeworld.pk
+- Check password: admin123 (exactly)
+
+## 📝 Ports Used
+
+- **Apache**: 80 (http://localhost)
+- **MySQL**: 3306
+- **PhpMyAdmin**: 80 (http://localhost/phpmyadmin)
+
+## 🔧 Key Folders
+
+```
+bike-world/
+├── api/
+│   ├── db.php           (Database connection)
+│   ├── auth.php         (Login/Register)
+│   ├── products.php     (Products API)
+│   ├── orders.php       (Orders API)
+│   └── setup.php        (Database setup)
+├── uploads/             (Product images)
+├── public/              (Frontend HTML)
+├── css/                 (Stylesheets)
+└── js/                  (JavaScript)
+```
+
+## 🚀 Features Now Working
+
+✅ User Registration  
+✅ User Login  
+✅ View Products  
+✅ Add to Cart  
+✅ Checkout  
+✅ Admin Login  
+✅ Add Products (Admin)  
+✅ Manage Orders  
+
+## 💡 Next Steps
+
+1. Add your own products via admin panel
+2. Test checkout flow as regular user
+3. Customize colors and branding in CSS
+4. Add more product categories
+5. Deploy to production server
+
+## 📞 Support
+
+If you encounter issues:
+1. Check XAMPP panel - both services running?
+2. Check browser console for errors (F12)
+3. Check terminal for PHP errors
+4. Verify all files in correct folders
+5. Run setup.php again
 
 ---
 
-**Version:** 1.0  
-**Last Updated:** 2026-10-01  
-**Tested on:** XAMPP 7.4+ (Windows, Mac, Linux)
+**Website is now running on XAMPP with MySQL!** 🎉

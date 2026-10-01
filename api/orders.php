@@ -23,6 +23,7 @@ if ($method === 'POST') {
     $stmt = $conn->prepare("INSERT INTO orders (user_id, total, payment_method, shipping_address, status) VALUES (?, ?, ?, ?, 'pending')");
     $shippingJson = json_encode($shippingAddress);
     $userId = (int) $_SESSION['user_id'];
+
     $stmt->bind_param('idss', $userId, $total, $paymentMethod, $shippingJson);
 
     if (!$stmt->execute()) {
@@ -48,3 +49,4 @@ if ($method === 'POST') {
 
 http_response_code(405);
 echo json_encode(['success' => false, 'error' => 'Method not allowed.']);
+?>

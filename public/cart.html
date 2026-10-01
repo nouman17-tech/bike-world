@@ -1,134 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart - Bike World</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping Cart - Bike World</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <i class="fas fa-motorcycle"></i> Bike World
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                </ul>
-                <a href="index.html" class="btn btn-secondary btn-sm">Back</a>
-            </div>
-        </div>
-    </nav>
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <div class="announcement-item"><i class="fas fa-truck"></i><span>Free Shipping above Rs. 5000</span></div>
+      <div class="announcement-item"><i class="fas fa-money-bill-wave"></i><span>Cash on Delivery</span></div>
+      <div class="announcement-item"><i class="fas fa-shield-halved"></i><span>Secure Payments</span></div>
+      <div class="announcement-item"><i class="fas fa-circle-check"></i><span>Original Quality Parts</span></div>
+    </div>
+  </div>
 
-    <!-- Cart Section -->
-    <section class="cart-section">
-        <div class="container">
-            <h1>Shopping Cart</h1>
-            <div class="cart-content">
-                <div class="cart-items" id="cartItems"></div>
-                <div class="cart-summary">
-                    <div class="summary-card">
-                        <h3>Order Summary</h3>
-                        <div class="summary-row">
-                            <span>Subtotal:</span>
-                            <span id="subtotal">PKR 0</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>Shipping:</span>
-                            <span>PKR 500</span>
-                        </div>
-                        <div class="summary-row total">
-                            <span>Total:</span>
-                            <span id="total">PKR 500</span>
-                        </div>
-                        <button class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</button>
-                    </div>
-                </div>
-            </div>
+  <nav class="navbar">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo" aria-label="Bike World Home">
+        <div class="logo-mark"><i class="fas fa-motorcycle"></i></div>
+        <div class="logo-text">Bike World</div>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html"><i class="fas fa-house"></i>Home</a></li>
+        <li><a href="products.html"><i class="fas fa-box-open"></i>Products</a></li>
+        <li><a href="about.html"><i class="fas fa-circle-info"></i>About</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i>Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="wishlist.html" class="nav-action" title="Wishlist" aria-label="Wishlist"><i class="far fa-heart"></i></a>
+        <a href="cart.html" class="nav-action cart-link active" title="Shopping Cart" aria-label="Shopping Cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </a>
+        <div class="user-menu">
+          <button class="nav-action" id="userBtn" type="button" title="My Account" aria-label="My Account"><i class="far fa-user"></i></button>
+          <div class="user-dropdown" id="userDropdown">
+            <a href="login.html" id="loginLink"><i class="fas fa-right-to-bracket"></i>Login</a>
+            <a href="register.html" id="registerLink"><i class="fas fa-user-plus"></i>Register</a>
+            <a href="account.html" id="dashboardLink" style="display:none;"><i class="fas fa-user-circle"></i>My Account</a>
+            <a href="#" id="logoutLink" style="display:none;"><i class="fas fa-right-from-bracket"></i>Logout</a>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2024 Bike World. Created by <strong>Nouman Ijaz</strong></p>
-            </div>
+  <section class="page-header">
+    <div class="container">
+      <h1>Shopping Cart</h1>
+      <p>Review and manage your items</p>
+    </div>
+  </section>
+
+  <section class="cart-section">
+    <div class="container cart-layout">
+      <div class="cart-items" id="cartItems"></div>
+      <aside class="summary-card">
+        <h3>Order Summary</h3>
+        <div class="summary-row"><span>Subtotal</span><span id="subtotal">Rs. 0</span></div>
+        <div class="summary-row"><span>Shipping</span><span>Rs. 500</span></div>
+        <div class="summary-row total"><span>Total</span><span id="total">Rs. 500</span></div>
+        <button id="checkoutBtn" class="btn btn-primary btn-block">Proceed to Checkout</button>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Bike World</h3>
+          <p>Pakistan's trusted destination for motorcycle spare parts and accessories.</p>
+          <p>Browse available products and place your order through the Bike World online store.</p>
         </div>
-    </footer>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Customer Area</h3>
+          <ul>
+            <li><a href="account.html">My Account</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="cart.html">Shopping Cart</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Bike World. All rights reserved. | Created by <strong>Nouman Ijaz</strong></p>
+      </div>
+    </div>
+  </footer>
 
-    <script src="js/api.js"></script>
-    <script>
-        function displayCart() {
-            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-            const cartItems = document.getElementById('cartItems');
-            
-            if (cart.length === 0) {
-                cartItems.innerHTML = '<p class="empty-cart">Your cart is empty. <a href="products.html">Continue shopping</a></p>';
-                document.getElementById('checkoutBtn').disabled = true;
-                return;
-            }
-            
-            let html = '';
-            let subtotal = 0;
-            
-            cart.forEach((item, index) => {
-                const itemTotal = item.price * item.quantity;
-                subtotal += itemTotal;
-                html += `
-                    <div class="cart-item">
-                        <img src="${item.image}" alt="${item.name}">
-                        <div class="item-details">
-                            <h3>${item.name}</h3>
-                            <p>PKR ${item.price}</p>
-                        </div>
-                        <div class="item-quantity">
-                            <button onclick="updateQuantity(${index}, -1)">-</button>
-                            <input type="number" value="${item.quantity}" min="1">
-                            <button onclick="updateQuantity(${index}, 1)">+</button>
-                        </div>
-                        <div class="item-total">PKR ${itemTotal}</div>
-                        <button class="btn-remove" onclick="removeFromCart(${index})"><i class="fas fa-trash"></i></button>
-                    </div>
-                `;
-            });
-            
-            cartItems.innerHTML = html;
-            document.getElementById('subtotal').textContent = `PKR ${subtotal}`;
-            document.getElementById('total').textContent = `PKR ${subtotal + 500}`;
+  <div class="toast" id="toast"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const count = cart.reduce((total, item) => total + Number(item.quantity || 1), 0);
+      document.querySelectorAll('.cart-count').forEach(el => { el.textContent = count; });
+    }
+
+    function updateUserMenu() {
+      const user = localStorage.getItem('user');
+      const loginLink = document.getElementById('loginLink');
+      const registerLink = document.getElementById('registerLink');
+      const dashboardLink = document.getElementById('dashboardLink');
+      const logoutLink = document.getElementById('logoutLink');
+      if (!loginLink || !registerLink || !dashboardLink || !logoutLink) return;
+
+      if (user) {
+        loginLink.style.display = 'none';
+        registerLink.style.display = 'none';
+        dashboardLink.style.display = 'block';
+        logoutLink.style.display = 'block';
+      } else {
+        loginLink.style.display = 'block';
+        registerLink.style.display = 'block';
+        dashboardLink.style.display = 'none';
+        logoutLink.style.display = 'none';
+      }
+    }
+
+    const userBtn = document.getElementById('userBtn');
+    const userDropdown = document.getElementById('userDropdown');
+    if (userBtn && userDropdown) {
+      userBtn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        userDropdown.style.display = userDropdown.style.display === 'block' ? 'none' : 'block';
+      });
+      document.addEventListener('click', (event) => {
+        if (!userDropdown.contains(event.target) && !userBtn.contains(event.target)) {
+          userDropdown.style.display = 'none';
         }
-        
-        function updateQuantity(index, change) {
-            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-            if (cart[index]) {
-                cart[index].quantity = Math.max(1, cart[index].quantity + change);
-                localStorage.setItem('cart', JSON.stringify(cart));
-                displayCart();
-            }
-        }
-        
-        function removeFromCart(index) {
-            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-            cart.splice(index, 1);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            displayCart();
-        }
-        
-        document.getElementById('checkoutBtn').addEventListener('click', () => {
-            const user = localStorage.getItem('user');
-            if (!user) {
-                alert('Please login to checkout');
-                window.location.href = 'login.html';
-            } else {
-                window.location.href = 'checkout.html';
-            }
+      });
+    }
+
+    const logoutLink = document.getElementById('logoutLink');
+    if (logoutLink) {
+      logoutLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        localStorage.removeItem('user');
+        updateUserMenu();
+        updateCartCount();
+        window.location.href = 'index.html';
+      });
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    function displayCart() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const cartItems = document.getElementById('cartItems');
+      const checkoutBtn = document.getElementById('checkoutBtn');
+
+      if (!cartItems || !checkoutBtn) return;
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<div class="empty-cart"><i class="fas fa-shopping-basket"></i><p>Your cart is empty.</p><a href="products.html" class="btn btn-primary" style="margin-top:10px;">Continue Shopping</a></div>';
+        document.getElementById('subtotal').textContent = 'Rs. 0';
+        document.getElementById('total').textContent = 'Rs. 500';
+        checkoutBtn.disabled = true;
+        checkoutBtn.classList.add('disabled');
+        return;
+      }
+
+      let subtotal = 0;
+      cartItems.innerHTML = cart.map((item, index) => {
+        const itemTotal = Number(item.price || 0) * Number(item.quantity || 1);
+        subtotal += itemTotal;
+        return `
+          <div class="cart-item">
+            <div class="cart-item-image">
+              ${item.image ? `<img src="${item.image}" alt="${item.name}" onerror="this.src='https://placehold.co/120x120/f5f7fa/0d1b2a?text=Bike'" />` : '<div class="empty-image"><i class="fas fa-motorcycle"></i></div>'}
+            </div>
+            <div class="cart-item-details">
+              <h3>${item.name}</h3>
+              <p>Rs. ${Number(item.price || 0).toLocaleString('en-PK')}</p>
+            </div>
+            <div class="quantity-controls">
+              <button type="button" class="qty-btn" data-action="decrease" data-index="${index}">-</button>
+              <input type="number" min="1" value="${Number(item.quantity || 1)}" readonly />
+              <button type="button" class="qty-btn" data-action="increase" data-index="${index}">+</button>
+            </div>
+            <div class="item-total">Rs. ${itemTotal.toLocaleString('en-PK')}</div>
+            <button type="button" class="remove-item-btn" data-index="${index}" aria-label="Remove product"><i class="fas fa-trash"></i></button>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('subtotal').textContent = `Rs. ${subtotal.toLocaleString('en-PK')}`;
+      document.getElementById('total').textContent = `Rs. ${(subtotal + 500).toLocaleString('en-PK')}`;
+      checkoutBtn.disabled = false;
+      checkoutBtn.classList.remove('disabled');
+
+      document.querySelectorAll('.qty-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = Number(btn.dataset.index);
+          const action = btn.dataset.action;
+          const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+          if (!cart[idx]) return;
+          if (action === 'increase') cart[idx].quantity = Number(cart[idx].quantity || 1) + 1;
+          if (action === 'decrease') cart[idx].quantity = Math.max(1, Number(cart[idx].quantity || 1) - 1);
+          localStorage.setItem('cart', JSON.stringify(cart));
+          updateCartCount();
+          displayCart();
         });
-        
-        displayCart();
-    </script>
+      });
+
+      document.querySelectorAll('.remove-item-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = Number(btn.dataset.index);
+          const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+          cart.splice(idx, 1);
+          localStorage.setItem('cart', JSON.stringify(cart));
+          updateCartCount();
+          displayCart();
+        });
+      });
+    }
+
+    document.getElementById('checkoutBtn')?.addEventListener('click', () => {
+      const user = localStorage.getItem('user');
+      if (!user) {
+        showToast('Please login to continue checkout.');
+        setTimeout(() => window.location.href = 'login.html', 600);
+        return;
+      }
+      window.location.href = 'checkout.html';
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCartCount();
+      updateUserMenu();
+      displayCart();
+    });
+
+    window.addEventListener('storage', () => {
+      updateCartCount();
+      updateUserMenu();
+      displayCart();
+    });
+  </script>
 </body>
 </html>

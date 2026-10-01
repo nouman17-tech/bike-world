@@ -1,186 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bike World - Premium Motorcycle Spare Parts</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bike World - Motorcycle Spare Parts</title>
+  <meta name="description" content="Bike World - Pakistan's trusted motorcycle spare parts store. Browse motorcycle parts, accessories and replacement components." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <i class="fas fa-motorcycle"></i> Bike World
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <div class="announcement-item"><i class="fas fa-truck"></i><span>Free Shipping above Rs. 5000</span></div>
+      <div class="announcement-item"><i class="fas fa-money-bill-wave"></i><span>Cash on Delivery</span></div>
+      <div class="announcement-item"><i class="fas fa-shield-halved"></i><span>Secure Payments</span></div>
+      <div class="announcement-item"><i class="fas fa-circle-check"></i><span>Original Quality Parts</span></div>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo" aria-label="Bike World Home">
+        <div class="logo-mark">
+          <i class="fas fa-motorcycle"></i>
+        </div>
+        <div class="logo-text">Bike World</div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="index.html" class="active"><i class="fas fa-house"></i>Home</a></li>
+        <li><a href="products.html"><i class="fas fa-box-open"></i>Products</a></li>
+        <li><a href="about.html"><i class="fas fa-circle-info"></i>About</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i>Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="wishlist.html" class="nav-action" title="Wishlist" aria-label="Wishlist"><i class="far fa-heart"></i></a>
+        <a href="cart.html" class="nav-action cart-link" title="Shopping Cart" aria-label="Shopping Cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </a>
+
+        <div class="user-menu">
+          <button class="nav-action" id="userBtn" type="button" title="My Account" aria-label="My Account"><i class="far fa-user"></i></button>
+          <div class="user-dropdown" id="userDropdown">
+            <a href="login.html" id="loginLink"><i class="fas fa-right-to-bracket"></i>Login</a>
+            <a href="register.html" id="registerLink"><i class="fas fa-user-plus"></i>Register</a>
+            <a href="account.html" id="dashboardLink" style="display:none;"><i class="fas fa-user-circle"></i>My Account</a>
+            <a href="#" id="logoutLink" style="display:none;"><i class="fas fa-right-from-bracket"></i>Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content container">
+      <div class="hero-copy">
+        <div class="hero-badge"><i class="fas fa-shield-halved"></i> Genuine Motorcycle Parts</div>
+        <h1>Find the Right <span>Motorcycle Parts</span> for Your Ride</h1>
+        <p>Explore motorcycle spare parts and accessories available through Bike World. Find products by category, brand and motorcycle requirements.</p>
+        <div class="hero-actions">
+          <a href="products.html" class="btn btn-primary btn-lg"><i class="fas fa-cart-shopping"></i>Shop Now</a>
+          <a href="#categories" class="btn btn-outline btn-lg"><i class="fas fa-layer-group"></i>Browse Categories</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-background"><i class="fas fa-motorcycle"></i></div>
+  </section>
+
+  <section class="categories" id="categories">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Shop by Category</h2>
+        <p>Find the motorcycle parts you need quickly and easily.</p>
+      </div>
+      <div class="category-grid">
+        <a href="products.html?category=Engine%20Parts" class="category-card">
+          <div class="category-icon"><i class="fas fa-oil-can"></i></div>
+          <h3>Engine Parts</h3>
+          <p>Engine components and oils</p>
+        </a>
+        <a href="products.html?category=Brakes%20%26%20Safety" class="category-card">
+          <div class="category-icon"><i class="fas fa-circle-stop"></i></div>
+          <h3>Brakes &amp; Safety</h3>
+          <p>Reliable braking components</p>
+        </a>
+        <a href="products.html?category=Filters" class="category-card">
+          <div class="category-icon"><i class="fas fa-filter"></i></div>
+          <h3>Filters</h3>
+          <p>Air and oil filters</p>
+        </a>
+        <a href="products.html?category=Drivetrain" class="category-card">
+          <div class="category-icon"><i class="fas fa-gear"></i></div>
+          <h3>Drivetrain</h3>
+          <p>Chains and sprockets</p>
+        </a>
+        <a href="products.html?category=Ignition" class="category-card">
+          <div class="category-icon"><i class="fas fa-bolt"></i></div>
+          <h3>Ignition</h3>
+          <p>Spark plugs and components</p>
+        </a>
+        <a href="products.html?category=Electrical" class="category-card">
+          <div class="category-icon"><i class="fas fa-car-battery"></i></div>
+          <h3>Electrical</h3>
+          <p>Batteries and electrical parts</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-products">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Featured Products</h2>
+        <p>Products currently available in the Bike World store.</p>
+      </div>
+      <div class="products-grid" id="featuredProducts">
+        <div class="products-loading"><i class="fas fa-spinner fa-spin"></i><p>Loading products...</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-choose-us">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Why Choose Bike World?</h2>
+        <p>Designed to make motorcycle parts shopping simple.</p>
+      </div>
+      <div class="features">
+        <div class="feature"><i class="fas fa-certificate"></i><h3>Quality Products</h3><p>Motorcycle spare parts from the brands and products available in our store.</p></div>
+        <div class="feature"><i class="fas fa-truck"></i><h3>Convenient Delivery</h3><p>Delivery options are available according to your order and destination.</p></div>
+        <div class="feature"><i class="fas fa-tags"></i><h3>Competitive Prices</h3><p>Browse our available motorcycle products and compare their prices.</p></div>
+        <div class="feature"><i class="fas fa-headset"></i><h3>Customer Support</h3><p>Contact the Bike World team for questions about products and orders.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="container">
+      <h2>Stay Updated with Bike World</h2>
+      <p>Subscribe for new products, updates and special offers.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" id="newsletterEmail" placeholder="Enter your email address" required />
+        <button type="submit" class="btn btn-primary"><i class="fas fa-envelope"></i>Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Bike World</h3>
+          <p>Pakistan's trusted destination for motorcycle spare parts and accessories.</p>
+          <p>Browse available products and place your order through the Bike World online store.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Customer Area</h3>
+          <ul>
+            <li><a href="account.html">My Account</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="cart.html">Shopping Cart</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Bike World. All rights reserved. | Created by <strong>Nouman Ijaz</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    function updateCartCount() {
+      try {
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const count = cart.reduce((total, item) => total + Number(item.quantity || 1), 0);
+        document.querySelectorAll('.cart-count').forEach(el => { el.textContent = count; });
+      } catch (error) {
+        console.error('Cart count error:', error);
+        document.querySelectorAll('.cart-count').forEach(el => { el.textContent = '0'; });
+      }
+    }
+
+    const userBtn = document.getElementById('userBtn');
+    const userDropdown = document.getElementById('userDropdown');
+    if (userBtn && userDropdown) {
+      userBtn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        userDropdown.style.display = userDropdown.style.display === 'block' ? 'none' : 'block';
+      });
+      document.addEventListener('click', (event) => {
+        if (!userDropdown.contains(event.target) && !userBtn.contains(event.target)) {
+          userDropdown.style.display = 'none';
+        }
+      });
+    }
+
+    function updateUserMenu() {
+      const user = localStorage.getItem('user');
+      const loginLink = document.getElementById('loginLink');
+      const registerLink = document.getElementById('registerLink');
+      const dashboardLink = document.getElementById('dashboardLink');
+      const logoutLink = document.getElementById('logoutLink');
+      if (!loginLink || !registerLink || !dashboardLink || !logoutLink) return;
+
+      if (user) {
+        loginLink.style.display = 'none';
+        registerLink.style.display = 'none';
+        dashboardLink.style.display = 'block';
+        logoutLink.style.display = 'block';
+      } else {
+        loginLink.style.display = 'block';
+        registerLink.style.display = 'block';
+        dashboardLink.style.display = 'none';
+        logoutLink.style.display = 'none';
+      }
+    }
+
+    const logoutLink = document.getElementById('logoutLink');
+    if (logoutLink) {
+      logoutLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        localStorage.removeItem('user');
+        updateUserMenu();
+        updateCartCount();
+        window.location.href = 'index.html';
+      });
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+    }
+
+    let featuredProductData = [];
+
+    async function loadFeaturedProducts() {
+      const container = document.getElementById('featuredProducts');
+      if (!container) return;
+
+      try {
+        const response = await fetch('/api/products');
+        if (!response.ok) throw new Error('Unable to load products.');
+
+        const data = await response.json();
+        if (!data.success || !Array.isArray(data.products)) throw new Error('Invalid products response.');
+
+        featuredProductData = data.products.slice(0, 4);
+
+        if (featuredProductData.length === 0) {
+          container.innerHTML = '<div class="products-empty"><i class="fas fa-box-open"></i><p>No products available.</p></div>';
+          return;
+        }
+
+        container.innerHTML = featuredProductData.map((product, index) => {
+          const imagePath = product.image ? (product.image.startsWith('/') ? product.image : '/'+product.image.replace(/^\/+/, '')) : '';
+          const stock = Number(product.stock || 0);
+          return `
+            <div class="product-card">
+              <div class="product-image">
+                ${imagePath ? `<img src="${escapeHtml(imagePath)}" alt="${escapeHtml(product.name)}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"> <div class="product-placeholder" style="display:none;"><i class="fas fa-motorcycle"></i></div>` : `<div class="product-placeholder" style="display:flex;"><i class="fas fa-motorcycle"></i></div>`}
+                <span class="stock-badge ${stock <= 0 ? 'out' : ''}">${stock > 0 ? 'In Stock' : 'Out of Stock'}</span>
+              </div>
+              <div class="product-info">
+                <div class="product-brand">${escapeHtml(product.brand || 'Bike World')}</div>
+                <div class="product-name">${escapeHtml(product.name)}</div>
+                <div class="product-category">${escapeHtml(product.category || 'Motorcycle Parts')}</div>
+                <div class="product-description">${escapeHtml(product.description || 'Quality motorcycle spare part.')}</div>
+                <div class="product-bottom">
+                  <div class="product-price">Rs. ${Number(product.price || 0).toLocaleString('en-PK')}</div>
+                  <div class="product-buttons">
+                    <button type="button" class="view-product-btn" data-product-index="${index}"><i class="fas fa-eye"></i>View</button>
+                    <button type="button" class="add-cart-btn" data-cart-index="${index}" ${stock <= 0 ? 'disabled' : ''}><i class="fas fa-cart-plus"></i>Add</button>
+                  </div>
                 </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                <div class="nav-icons">
-                    <a href="cart.html" class="cart-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count">0</span>
-                    </a>
-                    <div class="user-menu">
-                        <button class="user-btn" id="userBtn">
-                            <i class="fas fa-user"></i>
-                        </button>
-                        <div class="user-dropdown" id="userDropdown" style="display:none;">
-                            <a href="login.html" id="loginLink">Login</a>
-                            <a href="register.html" id="registerLink">Register</a>
-                            <a href="#" id="dashboardLink" style="display:none;">Dashboard</a>
-                            <a href="#" id="logoutLink" style="display:none;">Logout</a>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-        </div>
-    </nav>
+          `;
+        }).join('');
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to Bike World</h1>
-            <p>Your Ultimate Destination for Premium Bike Spare Parts</p>
-            <a href="products.html" class="btn btn-primary btn-lg">Shop Now</a>
-        </div>
-        <div class="hero-background">
-            <i class="fas fa-motorcycle"></i>
-        </div>
-    </section>
+        document.querySelectorAll('[data-product-index]').forEach(button => {
+          button.addEventListener('click', () => {
+            const index = Number(button.dataset.productIndex);
+            const product = featuredProductData[index];
+            if (product) window.location.href = 'product-details.html?id=' + encodeURIComponent(product.id);
+          });
+        });
 
-    <!-- Featured Categories -->
-    <section class="categories">
-        <div class="container">
-            <h2>Shop by Category</h2>
-            <div class="category-grid">
-                <div class="category-card">
-                    <i class="fas fa-oil-can"></i>
-                    <h3>Engine Oil</h3>
-                    <p>Premium quality engine oils</p>
-                </div>
-                <div class="category-card">
-                    <i class="fas fa-ban"></i>
-                    <h3>Brakes</h3>
-                    <p>High-performance brake systems</p>
-                </div>
-                <div class="category-card">
-                    <i class="fas fa-filter"></i>
-                    <h3>Filters</h3>
-                    <p>Air and oil filters</p>
-                </div>
-                <div class="category-card">
-                    <i class="fas fa-cog"></i>
-                    <h3>Drivetrain</h3>
-                    <p>Chain and sprocket kits</p>
-                </div>
-                <div class="category-card">
-                    <i class="fas fa-bolt"></i>
-                    <h3>Ignition</h3>
-                    <p>Spark plugs and coils</p>
-                </div>
-                <div class="category-card">
-                    <i class="fas fa-car-battery"></i>
-                    <h3>Electrical</h3>
-                    <p>Batteries and alternators</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        document.querySelectorAll('[data-cart-index]').forEach(button => {
+          button.addEventListener('click', () => {
+            const index = Number(button.dataset.cartIndex);
+            const product = featuredProductData[index];
+            if (product) addToCart(product);
+          });
+        });
+      } catch (error) {
+        console.error('Featured products error:', error);
+        container.innerHTML = '<div class="products-empty"><i class="fas fa-triangle-exclamation"></i><p>Unable to load products right now.</p><a href="products.html" class="btn btn-primary" style="margin-top:15px;"><i class="fas fa-box-open"></i>View Products</a></div>';
+      }
+    }
 
-    <!-- Featured Products -->
-    <section class="featured-products">
-        <div class="container">
-            <h2>Featured Products</h2>
-            <div class="products-grid" id="featuredProducts"></div>
-        </div>
-    </section>
+    function addToCart(product) {
+      try {
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const existing = cart.find(item => String(item.id) === String(product.id));
 
-    <!-- Why Choose Us -->
-    <section class="why-choose-us">
-        <div class="container">
-            <h2>Why Choose Bike World?</h2>
-            <div class="features">
-                <div class="feature">
-                    <i class="fas fa-certificate"></i>
-                    <h3>Authentic Products</h3>
-                    <p>100% genuine spare parts guaranteed</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-shipping-fast"></i>
-                    <h3>Fast Delivery</h3>
-                    <p>Quick delivery across Pakistan</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-tag"></i>
-                    <h3>Best Prices</h3>
-                    <p>Competitive pricing on all products</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-headset"></i>
-                    <h3>24/7 Support</h3>
-                    <p>Dedicated customer service</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        if (existing) {
+          existing.quantity = Number(existing.quantity || 1) + 1;
+        } else {
+          cart.push({
+            id: product.id,
+            name: product.name,
+            price: Number(product.price || 0),
+            image: product.image || '',
+            quantity: 1
+          });
+        }
 
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <div class="container">
-            <h2>Subscribe to Our Newsletter</h2>
-            <p>Get updates on new products and special offers</p>
-            <form class="newsletter-form" id="newsletterForm">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit" class="btn btn-primary">Subscribe</button>
-            </form>
-        </div>
-    </section>
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        showToast(product.name + ' added to your cart.');
+      } catch (error) {
+        console.error('Add to cart error:', error);
+        showToast('Unable to add this product to cart.');
+      }
+    }
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>About Bike World</h3>
-                    <p>Your trusted source for premium bike spare parts and accessories in Pakistan.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p>Email: info@bikeworld.pk</p>
-                    <p>Phone: +92-300-1234567</p>
-                    <p>Address: Karachi, Pakistan</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Bike World. All rights reserved. | Created by <strong>Nouman Ijaz</strong></p>
-            </div>
-        </div>
-    </footer>
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
+    }
 
-    <script src="js/api.js"></script>
-    <script src="js/app.js"></script>
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const email = document.getElementById('newsletterEmail').value.trim();
+        if (!email) return;
+        showToast('Thank you for subscribing to Bike World!');
+        newsletterForm.reset();
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCartCount();
+      updateUserMenu();
+      loadFeaturedProducts();
+    });
+
+    window.addEventListener('storage', () => {
+      updateCartCount();
+      updateUserMenu();
+    });
+  </script>
 </body>
 </html>

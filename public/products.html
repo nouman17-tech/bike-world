@@ -9,49 +9,109 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- =====================================================
+       ANNOUNCEMENT BAR
+  ====================================================== -->
   <div class="announcement-bar">
-    <div class="container announcement-content">
-      <div class="announcement-item"><i class="fas fa-truck"></i><span>Free Shipping above Rs. 5000</span></div>
-      <div class="announcement-item"><i class="fas fa-money-bill-wave"></i><span>Cash on Delivery</span></div>
-      <div class="announcement-item"><i class="fas fa-shield-halved"></i><span>Secure Payments</span></div>
-      <div class="announcement-item"><i class="fas fa-circle-check"></i><span>Original Quality Parts</span></div>
+    <div class="announcement-content">
+      <div class="announcement-item">
+        <i class="fas fa-truck"></i>
+        <span>Free Shipping above Rs. 5000</span>
+      </div>
+      <div class="announcement-item">
+        <i class="fas fa-money-bill-wave"></i>
+        <span>Cash on Delivery</span>
+      </div>
+      <div class="announcement-item">
+        <i class="fas fa-shield-halved"></i>
+        <span>Secure Payments</span>
+      </div>
+      <div class="announcement-item">
+        <i class="fas fa-circle-check"></i>
+        <span>Original Quality Parts</span>
+      </div>
     </div>
   </div>
 
+  <!-- =====================================================
+       MASTER NAVBAR
+  ====================================================== -->
   <nav class="navbar">
-    <div class="container nav-wrapper">
-      <a href="index.html" class="logo" aria-label="Bike World Home">
-        <div class="logo-mark"><i class="fas fa-motorcycle"></i></div>
-        <div class="logo-text">Bike World</div>
-      </a>
-
-      <ul class="nav-menu">
-        <li><a href="index.html"><i class="fas fa-house"></i>Home</a></li>
-        <li><a href="products.html" class="active"><i class="fas fa-box-open"></i>Products</a></li>
-        <li><a href="about.html"><i class="fas fa-circle-info"></i>About</a></li>
-        <li><a href="contact.html"><i class="fas fa-envelope"></i>Contact</a></li>
-      </ul>
-
-      <div class="nav-actions">
-        <a href="wishlist.html" class="nav-action" title="Wishlist" aria-label="Wishlist"><i class="far fa-heart"></i></a>
-        <a href="cart.html" class="nav-action cart-link" title="Shopping Cart" aria-label="Shopping Cart">
-          <i class="fas fa-shopping-cart"></i>
-          <span class="cart-count">0</span>
+    <div class="container">
+      <div class="nav-wrapper">
+        <!-- OFFICIAL BIKE WORLD LOGO -->
+        <a href="index.html" class="logo" aria-label="Bike World Home">
+          <img src="uploads/bike-world-logo.png" alt="Bike World - Pakistan's Trusted Motorcycle Spare Parts Store" />
         </a>
 
-        <div class="user-menu">
-          <button class="nav-action" id="userBtn" type="button" title="My Account" aria-label="My Account"><i class="far fa-user"></i></button>
-          <div class="user-dropdown" id="userDropdown">
-            <a href="login.html" id="loginLink"><i class="fas fa-right-to-bracket"></i>Login</a>
-            <a href="register.html" id="registerLink"><i class="fas fa-user-plus"></i>Register</a>
-            <a href="account.html" id="dashboardLink" style="display:none;"><i class="fas fa-user-circle"></i>My Account</a>
-            <a href="#" id="logoutLink" style="display:none;"><i class="fas fa-right-from-bracket"></i>Logout</a>
+        <ul class="nav-menu">
+          <li>
+            <a href="index.html">
+              <i class="fas fa-house"></i>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="products.html" class="active">
+              <i class="fas fa-box-open"></i>
+              Products
+            </a>
+          </li>
+          <li>
+            <a href="about.html">
+              <i class="fas fa-circle-info"></i>
+              About
+            </a>
+          </li>
+          <li>
+            <a href="contact.html">
+              <i class="fas fa-envelope"></i>
+              Contact
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="wishlist.html" class="nav-action" title="Wishlist" aria-label="Wishlist">
+            <i class="far fa-heart"></i>
+          </a>
+
+          <a href="cart.html" class="nav-action" title="Shopping Cart" aria-label="Shopping Cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+          </a>
+
+          <div class="user-menu">
+            <button class="nav-action" id="userBtn" type="button" title="My Account" aria-label="My Account">
+              <i class="far fa-user"></i>
+            </button>
+            <div class="user-dropdown" id="userDropdown">
+              <a href="login.html" id="loginLink">
+                <i class="fas fa-right-to-bracket"></i>
+                &nbsp; Login
+              </a>
+              <a href="register.html" id="registerLink">
+                <i class="fas fa-user-plus"></i>
+                &nbsp; Register
+              </a>
+              <a href="account.html" id="dashboardLink" style="display: none;">
+                <i class="fas fa-user-circle"></i>
+                &nbsp; My Account
+              </a>
+              <a href="#" id="logoutLink" style="display: none;">
+                <i class="fas fa-right-from-bracket"></i>
+                &nbsp; Logout
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </nav>
 
+  <!-- =====================================================
+       PAGE HEADER
+  ====================================================== -->
   <section class="page-header">
     <div class="container">
       <h1>All Products</h1>
@@ -59,17 +119,38 @@
     </div>
   </section>
 
+  <!-- =====================================================
+       PRODUCTS PAGE
+  ====================================================== -->
   <section class="products-page">
     <div class="container products-layout">
       <aside class="filters-sidebar">
         <div class="filter-group">
           <h3>Categories</h3>
-          <div class="filter-option"><input type="checkbox" id="catEngine" value="Engine Parts" class="category-filter" /><label for="catEngine">Engine Parts</label></div>
-          <div class="filter-option"><input type="checkbox" id="catBrakes" value="Brakes & Safety" class="category-filter" /><label for="catBrakes">Brakes &amp; Safety</label></div>
-          <div class="filter-option"><input type="checkbox" id="catFilters" value="Filters" class="category-filter" /><label for="catFilters">Filters</label></div>
-          <div class="filter-option"><input type="checkbox" id="catDrivetrain" value="Drivetrain" class="category-filter" /><label for="catDrivetrain">Drivetrain</label></div>
-          <div class="filter-option"><input type="checkbox" id="catIgnition" value="Ignition" class="category-filter" /><label for="catIgnition">Ignition</label></div>
-          <div class="filter-option"><input type="checkbox" id="catElectrical" value="Electrical" class="category-filter" /><label for="catElectrical">Electrical</label></div>
+          <div class="filter-option">
+            <input type="checkbox" id="catEngine" value="Engine Parts" class="category-filter" />
+            <label for="catEngine">Engine Parts</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="catBrakes" value="Brakes & Safety" class="category-filter" />
+            <label for="catBrakes">Brakes &amp; Safety</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="catFilters" value="Filters" class="category-filter" />
+            <label for="catFilters">Filters</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="catDrivetrain" value="Drivetrain" class="category-filter" />
+            <label for="catDrivetrain">Drivetrain</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="catIgnition" value="Ignition" class="category-filter" />
+            <label for="catIgnition">Ignition</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="catElectrical" value="Electrical" class="category-filter" />
+            <label for="catElectrical">Electrical</label>
+          </div>
         </div>
 
         <div class="filter-group">
@@ -80,7 +161,9 @@
           </div>
         </div>
 
-        <button class="clear-filters-btn" id="clearFiltersBtn"><i class="fas fa-times"></i>Clear Filters</button>
+        <button class="clear-filters-btn" id="clearFiltersBtn">
+          <i class="fas fa-times"></i>Clear Filters
+        </button>
       </aside>
 
       <div class="products-container">
@@ -98,12 +181,18 @@
         </div>
 
         <div class="products-grid" id="productsGrid">
-          <div class="products-loading"><i class="fas fa-spinner fa-spin"></i><p>Loading products...</p></div>
+          <div class="products-loading">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading products...</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- =====================================================
+       MASTER FOOTER
+  ====================================================== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
@@ -115,27 +204,49 @@
         <div class="footer-section">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="products.html">Products</a>
+            </li>
+            <li>
+              <a href="about.html">About Us</a>
+            </li>
+            <li>
+              <a href="contact.html">Contact</a>
+            </li>
           </ul>
         </div>
         <div class="footer-section">
           <h3>Customer Area</h3>
           <ul>
-            <li><a href="account.html">My Account</a></li>
-            <li><a href="wishlist.html">Wishlist</a></li>
-            <li><a href="cart.html">Shopping Cart</a></li>
-            <li><a href="checkout.html">Checkout</a></li>
+            <li>
+              <a href="account.html">My Account</a>
+            </li>
+            <li>
+              <a href="wishlist.html">Wishlist</a>
+            </li>
+            <li>
+              <a href="cart.html">Shopping Cart</a>
+            </li>
+            <li>
+              <a href="checkout.html">Checkout</a>
+            </li>
           </ul>
         </div>
         <div class="footer-section">
           <h3>Follow Us</h3>
           <div class="social-links">
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -145,95 +256,122 @@
     </div>
   </footer>
 
+  <!-- =====================================================
+       TOAST
+  ====================================================== -->
   <div class="toast" id="toast"></div>
 
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
   <script src="js/api.js"></script>
   <script src="js/app.js"></script>
+
   <script>
     let allProducts = [];
     let filteredProducts = [];
 
     function updateCartCount() {
       try {
-        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
         const count = cart.reduce((total, item) => total + Number(item.quantity || 1), 0);
-        document.querySelectorAll('.cart-count').forEach(el => { el.textContent = count; });
+        document.querySelectorAll(".cart-count").forEach((el) => {
+          el.textContent = count;
+        });
       } catch (error) {
-        console.error('Cart count error:', error);
-        document.querySelectorAll('.cart-count').forEach(el => { el.textContent = '0'; });
+        console.error("Cart count error:", error);
+        document.querySelectorAll(".cart-count").forEach((el) => {
+          el.textContent = "0";
+        });
       }
     }
 
-    const userBtn = document.getElementById('userBtn');
-    const userDropdown = document.getElementById('userDropdown');
+    const userBtn = document.getElementById("userBtn");
+    const userDropdown = document.getElementById("userDropdown");
     if (userBtn && userDropdown) {
-      userBtn.addEventListener('click', (event) => {
+      userBtn.addEventListener("click", (event) => {
         event.stopPropagation();
-        userDropdown.style.display = userDropdown.style.display === 'block' ? 'none' : 'block';
+        userDropdown.style.display = userDropdown.style.display === "block" ? "none" : "block";
       });
-      document.addEventListener('click', (event) => {
+      document.addEventListener("click", (event) => {
         if (!userDropdown.contains(event.target) && !userBtn.contains(event.target)) {
-          userDropdown.style.display = 'none';
+          userDropdown.style.display = "none";
         }
       });
     }
 
     function updateUserMenu() {
-      const user = localStorage.getItem('user');
-      const loginLink = document.getElementById('loginLink');
-      const registerLink = document.getElementById('registerLink');
-      const dashboardLink = document.getElementById('dashboardLink');
-      const logoutLink = document.getElementById('logoutLink');
+      const user = localStorage.getItem("user");
+      const loginLink = document.getElementById("loginLink");
+      const registerLink = document.getElementById("registerLink");
+      const dashboardLink = document.getElementById("dashboardLink");
+      const logoutLink = document.getElementById("logoutLink");
       if (!loginLink || !registerLink || !dashboardLink || !logoutLink) return;
 
       if (user) {
-        loginLink.style.display = 'none';
-        registerLink.style.display = 'none';
-        dashboardLink.style.display = 'block';
-        logoutLink.style.display = 'block';
+        loginLink.style.display = "none";
+        registerLink.style.display = "none";
+        dashboardLink.style.display = "block";
+        logoutLink.style.display = "block";
       } else {
-        loginLink.style.display = 'block';
-        registerLink.style.display = 'block';
-        dashboardLink.style.display = 'none';
-        logoutLink.style.display = 'none';
+        loginLink.style.display = "block";
+        registerLink.style.display = "block";
+        dashboardLink.style.display = "none";
+        logoutLink.style.display = "none";
       }
     }
 
-    const logoutLink = document.getElementById('logoutLink');
+    const logoutLink = document.getElementById("logoutLink");
     if (logoutLink) {
-      logoutLink.addEventListener('click', (event) => {
+      logoutLink.addEventListener("click", (event) => {
         event.preventDefault();
-        localStorage.removeItem('user');
+        localStorage.removeItem("user");
         updateUserMenu();
         updateCartCount();
-        window.location.href = 'index.html';
+        window.location.href = "index.html";
       });
     }
 
     function escapeHtml(value) {
-      return String(value ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
     }
 
     function createProductCard(product, index) {
-      const imagePath = product.image ? (product.image.startsWith('/') ? product.image : '/' + product.image.replace(/^\/+/, '')) : '';
+      const imagePath = product.image
+        ? product.image.startsWith("/")
+          ? product.image
+          : "/" + product.image.replace(/^\/+/, "")
+        : "";
       const stock = Number(product.stock || 0);
 
       return `
         <div class="product-card">
           <div class="product-image">
-            ${imagePath ? `<img src="${escapeHtml(imagePath)}" alt="${escapeHtml(product.name)}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"> <div class="product-placeholder" style="display:none;"><i class="fas fa-motorcycle"></i></div>` : `<div class="product-placeholder" style="display:flex;"><i class="fas fa-motorcycle"></i></div>`}
-            <span class="stock-badge ${stock <= 0 ? 'out' : ''}">${stock > 0 ? 'In Stock' : 'Out of Stock'}</span>
+            ${
+              imagePath
+                ? `<img src="${escapeHtml(imagePath)}" alt="${escapeHtml(product.name)}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">`
+                : ""
+            }
+            <div class="product-placeholder" style="${imagePath ? "display:none;" : "display:flex;"}">
+              <i class="fas fa-motorcycle"></i>
+            </div>
+            <span class="stock-badge ${stock <= 0 ? "out" : ""}">${stock > 0 ? "In Stock" : "Out of Stock"}</span>
           </div>
           <div class="product-info">
-            <div class="product-brand">${escapeHtml(product.brand || 'Bike World')}</div>
+            <div class="product-brand">${escapeHtml(product.brand || "Bike World")}</div>
             <div class="product-name">${escapeHtml(product.name)}</div>
-            <div class="product-category">${escapeHtml(product.category || 'Motorcycle Parts')}</div>
-            <div class="product-description">${escapeHtml(product.description || 'Quality motorcycle spare part.')}</div>
+            <div class="product-category">${escapeHtml(product.category || "Motorcycle Parts")}</div>
+            <div class="product-description">${escapeHtml(product.description || "Quality motorcycle spare part.")}</div>
             <div class="product-bottom">
-              <div class="product-price">Rs. ${Number(product.price || 0).toLocaleString('en-PK')}</div>
+              <div class="product-price">Rs. ${Number(product.price || 0).toLocaleString("en-PK")}</div>
               <div class="product-buttons">
                 <button type="button" class="view-product-btn" data-product-index="${index}"><i class="fas fa-eye"></i>View</button>
-                <button type="button" class="add-cart-btn" data-cart-index="${index}" ${stock <= 0 ? 'disabled' : ''}><i class="fas fa-cart-plus"></i>Add</button>
+                <button type="button" class="add-cart-btn" data-cart-index="${index}" ${stock <= 0 ? "disabled" : ""}><i class="fas fa-cart-plus"></i>Add</button>
               </div>
             </div>
           </div>
@@ -242,16 +380,16 @@
     }
 
     function attachProductButtons() {
-      document.querySelectorAll('[data-product-index]').forEach(button => {
-        button.addEventListener('click', () => {
+      document.querySelectorAll("[data-product-index]").forEach((button) => {
+        button.addEventListener("click", () => {
           const index = Number(button.dataset.productIndex);
           const product = filteredProducts[index];
-          if (product) window.location.href = 'product-details.html?id=' + encodeURIComponent(product.id);
+          if (product) window.location.href = "product-details.html?id=" + encodeURIComponent(product.id);
         });
       });
 
-      document.querySelectorAll('[data-cart-index]').forEach(button => {
-        button.addEventListener('click', () => {
+      document.querySelectorAll("[data-cart-index]").forEach((button) => {
+        button.addEventListener("click", () => {
           const index = Number(button.dataset.cartIndex);
           const product = filteredProducts[index];
           if (product) addToCart(product);
@@ -261,63 +399,76 @@
 
     function addToCart(product) {
       try {
-        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-        const existing = cart.find(item => String(item.id) === String(product.id));
+        let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        const existing = cart.find((item) => String(item.id) === String(product.id));
         if (existing) {
           existing.quantity = Number(existing.quantity || 1) + 1;
         } else {
-          cart.push({ id: product.id, name: product.name, price: Number(product.price || 0), image: product.image || '', quantity: 1 });
+          cart.push({
+            id: product.id,
+            name: product.name,
+            price: Number(product.price || 0),
+            image: product.image || "",
+            quantity: 1
+          });
         }
-        localStorage.setItem('cart', JSON.stringify(cart));
+        localStorage.setItem("cart", JSON.stringify(cart));
         updateCartCount();
         showToast(`${product.name} added to your cart.`);
       } catch (error) {
-        console.error('Add to cart error:', error);
-        showToast('Unable to add this product to cart.');
+        console.error("Add to cart error:", error);
+        showToast("Unable to add this product to cart.");
       }
     }
 
     function showToast(message) {
-      const toast = document.getElementById('toast');
+      const toast = document.getElementById("toast");
       if (!toast) return;
       toast.textContent = message;
-      toast.classList.add('show');
+      toast.classList.add("show");
       clearTimeout(window.toastTimer);
-      window.toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
+      window.toastTimer = setTimeout(() => toast.classList.remove("show"), 2500);
     }
 
     function sortProducts() {
-      const sortValue = document.getElementById('sortSelect').value;
+      const sortValue = document.getElementById("sortSelect").value;
       switch (sortValue) {
-        case 'price-low': filteredProducts.sort((a, b) => (a.price || 0) - (b.price || 0)); break;
-        case 'price-high': filteredProducts.sort((a, b) => (b.price || 0) - (a.price || 0)); break;
-        case 'name': filteredProducts.sort((a, b) => (a.name || '').localeCompare(b.name || '')); break;
-        default: filteredProducts.sort((a, b) => (b.id || 0) - (a.id || 0));
+        case "price-low":
+          filteredProducts.sort((a, b) => (a.price || 0) - (b.price || 0));
+          break;
+        case "price-high":
+          filteredProducts.sort((a, b) => (b.price || 0) - (a.price || 0));
+          break;
+        case "name":
+          filteredProducts.sort((a, b) => (a.name || "").localeCompare(b.name || ""));
+          break;
+        default:
+          filteredProducts.sort((a, b) => (b.id || 0) - (a.id || 0));
       }
     }
 
     function renderProducts() {
-      const container = document.getElementById('productsGrid');
-      const count = document.getElementById('productCount');
+      const container = document.getElementById("productsGrid");
+      const count = document.getElementById("productCount");
       if (!container || !count) return;
 
       if (filteredProducts.length === 0) {
         container.innerHTML = '<div class="products-empty"><i class="fas fa-box-open"></i><p>No products match your filters.</p></div>';
-        count.textContent = '0';
+        count.textContent = "0";
         return;
       }
 
       count.textContent = String(filteredProducts.length);
-      container.innerHTML = filteredProducts.map((product, index) => createProductCard(product, index)).join('');
+      container.innerHTML = filteredProducts.map((product, index) => createProductCard(product, index)).join("");
       attachProductButtons();
     }
 
     function applyFilters() {
-      const selectedCategories = Array.from(document.querySelectorAll('.category-filter:checked')).map(el => el.value);
-      const minPrice = Number(document.getElementById('minPrice').value) || 0;
-      const maxPrice = Number(document.getElementById('maxPrice').value) || Infinity;
+      const selectedCategories = Array.from(document.querySelectorAll(".category-filter:checked")).map((el) => el.value);
+      const minPrice = Number(document.getElementById("minPrice").value) || 0;
+      const maxPrice = Number(document.getElementById("maxPrice").value) || Infinity;
 
-      filteredProducts = allProducts.filter(product => {
+      filteredProducts = allProducts.filter((product) => {
         const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(product.category);
         const priceMatch = Number(product.price || 0) >= minPrice && Number(product.price || 0) <= maxPrice;
         return categoryMatch && priceMatch;
@@ -328,49 +479,52 @@
     }
 
     async function loadProducts() {
-      const container = document.getElementById('productsGrid');
+      const container = document.getElementById("productsGrid");
       if (!container) return;
 
       try {
-        const response = await fetch('/api/products');
-        if (!response.ok) throw new Error('Unable to load products.');
+        const response = await fetch("/api/products");
+        if (!response.ok) throw new Error("Unable to load products.");
         const data = await response.json();
-        if (!data.success || !Array.isArray(data.products)) throw new Error('Invalid products response.');
+        if (!data.success || !Array.isArray(data.products)) throw new Error("Invalid products response.");
 
         allProducts = data.products;
-        const categoryParam = new URLSearchParams(window.location.search).get('category');
+        const categoryParam = new URLSearchParams(window.location.search).get("category");
         if (categoryParam) {
-          const target = document.getElementById('cat' + categoryParam.replace(/\s+/g, ''));
+          const target = document.getElementById("cat" + categoryParam.replace(/\s+/g, ""));
           if (target) target.checked = true;
         }
 
         applyFilters();
       } catch (error) {
-        console.error('Load products error:', error);
+        console.error("Load products error:", error);
         container.innerHTML = '<div class="products-empty"><i class="fas fa-triangle-exclamation"></i><p>Unable to load products right now.</p></div>';
       }
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener("DOMContentLoaded", () => {
       updateCartCount();
       updateUserMenu();
       loadProducts();
 
-      document.querySelectorAll('.category-filter').forEach((checkbox) => {
-        checkbox.addEventListener('change', applyFilters);
+      document.querySelectorAll(".category-filter").forEach((checkbox) => {
+        checkbox.addEventListener("change", applyFilters);
       });
-      document.getElementById('minPrice').addEventListener('change', applyFilters);
-      document.getElementById('maxPrice').addEventListener('change', applyFilters);
-      document.getElementById('sortSelect').addEventListener('change', () => { sortProducts(); renderProducts(); });
-      document.getElementById('clearFiltersBtn').addEventListener('click', () => {
-        document.querySelectorAll('.category-filter').forEach(el => el.checked = false);
-        document.getElementById('minPrice').value = '';
-        document.getElementById('maxPrice').value = '';
+      document.getElementById("minPrice").addEventListener("change", applyFilters);
+      document.getElementById("maxPrice").addEventListener("change", applyFilters);
+      document.getElementById("sortSelect").addEventListener("change", () => {
+        sortProducts();
+        renderProducts();
+      });
+      document.getElementById("clearFiltersBtn").addEventListener("click", () => {
+        document.querySelectorAll(".category-filter").forEach((el) => (el.checked = false));
+        document.getElementById("minPrice").value = "";
+        document.getElementById("maxPrice").value = "";
         applyFilters();
       });
     });
 
-    window.addEventListener('storage', () => {
+    window.addEventListener("storage", () => {
       updateCartCount();
       updateUserMenu();
     });
